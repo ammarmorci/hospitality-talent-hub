@@ -1,529 +1,878 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hospitality Talent Hub</title>
-  <meta name="description" content="Hospitality Talent Hub — Connecting exceptional hospitality talent with leading hospitality teams.">
+<title>Hospitality Talent Hub</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta name="description"
+content="Hospitality Talent Hub connects exceptional hospitality talent with leading hospitality teams.">
 
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #191919;
-      line-height: 1.6;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #191919;
+    line-height: 1.6;
+}
 
-    /* NAVIGATION */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar {
+    width: 100%;
+    height: 78px;
+    background: #191919;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.65;
+}
+
+.signup-btn {
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.signup-btn:hover {
+    background: #ffffff;
+    color: #191919;
+    opacity: 1 !important;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background: #191919;
+    color: #ffffff;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 80px 6%;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    max-width: 650px;
+    font-size: 19px;
+    color: #ffffff;
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-block;
+    padding: 15px 28px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.primary-btn {
+    background: #ffffff;
+    color: #191919;
+}
+
+.primary-btn:hover {
+    background: #191919;
+    color: #ffffff;
+    outline: 1px solid #ffffff;
+}
+
+.secondary-btn {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+.secondary-btn:hover {
+    background: #ffffff;
+    color: #191919;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    padding: 100px 6%;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section h2 {
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.section-description {
+    max-width: 450px;
+    font-size: 16px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-area {
+    background: #191919;
+    color: #ffffff;
+    padding: 35px;
+    margin-bottom: 55px;
+    border-radius: 4px;
+}
+
+.search-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+}
+
+.search-input,
+.filter-select {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #ffffff;
+    background: #191919;
+    color: #ffffff;
+    padding: 0 16px;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+.search-input::placeholder {
+    color: #ffffff;
+    opacity: 0.6;
+}
+
+.filter-select option {
+    background: #191919;
+    color: #ffffff;
+}
+
+/* =========================
+   JOBS
+========================= */
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.job-card {
+    border: 1px solid #191919;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    transition: all 0.2s ease;
+}
+
+.job-card:hover {
+    background: #191919;
+    color: #ffffff;
+}
+
+.job-department {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.job-title {
+    font-size: 30px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+}
+
+.job-location,
+.job-type {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.job-meta {
+    margin-bottom: 25px;
+}
+
+.job-actions {
+    margin-top: auto;
+}
+
+.apply-btn {
+    display: inline-block;
+    border: 1px solid #191919;
+    padding: 12px 22px;
+    font-size: 13px;
+    font-weight: 700;
+    background: #ffffff;
+    color: #191919;
+}
+
+.job-card:hover .apply-btn {
+    border-color: #ffffff;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.no-results {
+    display: none;
+    border: 1px solid #191919;
+    padding: 40px;
+    text-align: center;
+}
+
+/* =========================
+   SIGN UP
+========================= */
+
+.signup-section {
+    background: #191919;
+    color: #ffffff;
+    text-align: center;
+    padding: 110px 6%;
+}
+
+.signup-section h2 {
+    font-size: clamp(38px, 5vw, 65px);
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.signup-section p {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    opacity: 0.8;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #ffffff;
+    border-top: 1px solid #191919;
+    padding: 40px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-logo {
+    height: 38px;
+    width: auto;
+}
+
+.footer-text {
+    font-size: 12px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
     .navbar {
-      height: 76px;
-      padding: 0 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #191919;
-      background: #191919;
-      color: #ffffff;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border: 1px solid #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 13px;
+        height: auto;
+        min-height: 75px;
+        padding: 15px 5%;
     }
 
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-      font-size: 15px;
-      font-weight: 600;
+        gap: 14px;
     }
 
-    .nav-links a:hover {
-      text-decoration: underline;
+    .nav-links a:not(.signup-btn) {
+        display: none;
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 22px;
+    .logo {
+        height: 42px;
     }
 
-    .login {
-      font-weight: 600;
-    }
-
-    .signup {
-      background: #ffffff;
-      color: #191919;
-      padding: 11px 22px;
-      border-radius: 5px;
-      font-weight: 700;
-    }
-
-    /* HERO */
     .hero {
-      min-height: 650px;
-      padding: 100px 8%;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 70px;
-      align-items: center;
-      background: #ffffff;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      border: 1px solid #191919;
-      border-radius: 30px;
-      padding: 7px 15px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 28px;
+        min-height: 560px;
+        padding: 70px 5%;
     }
 
     .hero h1 {
-      font-size: clamp(48px, 6vw, 82px);
-      line-height: 0.98;
-      letter-spacing: -4px;
-      max-width: 850px;
-      margin-bottom: 28px;
+        letter-spacing: -2px;
     }
 
     .hero p {
-      max-width: 650px;
-      font-size: 19px;
-      color: #191919;
-      margin-bottom: 35px;
+        font-size: 16px;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 25px;
-      border: 1px solid #191919;
-      border-radius: 5px;
-      font-weight: 700;
-    }
-
-    .button.primary {
-      background: #191919;
-      color: #ffffff;
-    }
-
-    .button.secondary {
-      background: #ffffff;
-      color: #191919;
-    }
-
-    .hero-visual {
-      background: #191919;
-      min-height: 430px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 50px;
-    }
-
-    .logo-placeholder {
-      color: #ffffff;
-      text-align: center;
-      font-size: 44px;
-      line-height: 0.95;
-      font-weight: 300;
-      text-transform: lowercase;
-    }
-
-    .logo-placeholder strong {
-      display: block;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    /* TRUST BAR */
-    .trust {
-      border-top: 1px solid #191919;
-      border-bottom: 1px solid #191919;
-      padding: 25px 6%;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      text-align: center;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    /* JOBS */
-    .jobs-section {
-      padding: 100px 8%;
+    .section {
+        padding: 75px 5%;
     }
 
     .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 30px;
-      margin-bottom: 45px;
+        display: block;
     }
 
-    .section-header h2 {
-      font-size: 46px;
-      letter-spacing: -2px;
+    .section-description {
+        margin-top: 20px;
     }
 
-    .section-header p {
-      margin-top: 8px;
-    }
-
-    .view-all {
-      font-weight: 700;
-      white-space: nowrap;
+    .search-grid {
+        grid-template-columns: 1fr;
     }
 
     .jobs-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+        grid-template-columns: 1fr;
     }
 
     .job-card {
-      border: 1px solid #191919;
-      padding: 28px;
-      min-height: 260px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: 0.2s ease;
+        min-height: 280px;
     }
 
-    .job-card:hover {
-      background: #191919;
-      color: #ffffff;
-    }
-
-    .job-type {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
-
-    .job-card h3 {
-      font-size: 25px;
-      line-height: 1.15;
-      margin-bottom: 12px;
-    }
-
-    .job-location {
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .apply-link {
-      font-weight: 700;
-    }
-
-    /* NEWSLETTER */
-    .newsletter {
-      margin: 0 8% 100px;
-      padding: 70px;
-      background: #191919;
-      color: #ffffff;
-      text-align: center;
-    }
-
-    .newsletter h2 {
-      font-size: 44px;
-      letter-spacing: -2px;
-      margin-bottom: 15px;
-    }
-
-    .newsletter p {
-      max-width: 650px;
-      margin: 0 auto 30px;
-    }
-
-    .newsletter-button {
-      display: inline-block;
-      background: #ffffff;
-      color: #191919;
-      padding: 14px 28px;
-      border-radius: 5px;
-      font-weight: 700;
-    }
-
-    /* FOOTER */
     footer {
-      background: #191919;
-      color: #ffffff;
-      padding: 45px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-    }
-
-    footer p {
-      font-size: 13px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 850px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 70px 6%;
-      }
-
-      .hero h1 {
-        font-size: 50px;
-      }
-
-      .trust {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-      }
-
-      .jobs-section {
-        padding: 70px 6%;
-      }
-
-      .section-header {
-        display: block;
-      }
-
-      .view-all {
-        display: inline-block;
-        margin-top: 20px;
-      }
-
-      .jobs-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .newsletter {
-        margin: 0 6% 70px;
-        padding: 45px 25px;
-      }
-
-      .newsletter h2 {
-        font-size: 34px;
-      }
-
-      footer {
         flex-direction: column;
         align-items: flex-start;
-      }
     }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="navbar">
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-    <a href="#home" class="brand">
-      <div class="brand-mark">HT</div>
-      <span>Hospitality Talent Hub</span>
+<header class="navbar">
+
+    <a href="#home">
+        <img src="logo.png"
+             alt="Hospitality Talent Hub"
+             class="logo">
     </a>
 
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#jobs">Jobs</a>
-    </div>
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#jobs">Jobs</a>
+        <a href="#signup" class="signup-btn">Sign Up</a>
+    </nav>
 
-    <div class="nav-actions">
-      <a href="#" class="login">Log In</a>
-      <a href="#signup" class="signup">Sign Up</a>
-    </div>
-
-  </nav>
+</header>
 
 
-  <!-- HERO -->
-  <main id="home">
+<!-- =========================
+     HERO
+========================= -->
 
-    <section class="hero">
+<main>
 
-      <div>
-        <span class="eyebrow">Hospitality Careers</span>
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            Hospitality Talent Hub
+        </div>
 
         <h1>
-          Connecting Exceptional Talent With Leading Hospitality Teams.
+            Exceptional Talent.<br>
+            Exceptional Hospitality.
         </h1>
 
         <p>
-          Discover the right hospitality opportunities and build your career
-          with leading hotels, resorts, restaurants and hospitality teams.
+            Connecting experienced hospitality professionals
+            with leading hotels, resorts and hospitality teams.
         </p>
 
         <div class="hero-buttons">
-          <a href="#jobs" class="button primary">
-            Explore Jobs →
-          </a>
 
-          <a href="#signup" class="button secondary">
-            Sign Up
-          </a>
+            <a href="#jobs" class="primary-btn">
+                Explore Jobs
+            </a>
+
+            <a href="#signup" class="secondary-btn">
+                Sign Up
+            </a>
+
         </div>
-      </div>
+
+    </div>
+
+</section>
 
 
-      <div class="hero-visual">
-        <div class="logo-placeholder">
-          hospitality
-          <strong>talent</strong>
-          hub
+<!-- =========================
+     JOBS
+========================= -->
+
+<section class="section" id="jobs">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-label">
+                Opportunities
+            </div>
+
+            <h2>
+                Open Positions
+            </h2>
         </div>
-      </div>
 
-    </section>
+        <p class="section-description">
+            Discover your next opportunity in hospitality.
+            Search available positions by role, location
+            or department.
+        </p>
+
+    </div>
 
 
-    <!-- TRUST -->
-    <section class="trust">
-      <div>5-Star Resorts & Hotels</div>
-      <div>Leading Restaurants</div>
-      <div>Direct Applications</div>
-      <div>100% Confidential</div>
-    </section>
+    <!-- SEARCH -->
+
+    <div class="search-area">
+
+        <div class="search-grid">
+
+            <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="Search job title..."
+            >
+
+            <select id="locationFilter" class="filter-select">
+                <option value="">All Locations</option>
+            </select>
+
+            <select id="departmentFilter" class="filter-select">
+                <option value="">All Departments</option>
+            </select>
+
+        </div>
+
+    </div>
 
 
     <!-- JOBS -->
-    <section class="jobs-section" id="jobs">
 
-      <div class="section-header">
+    <div id="jobsGrid" class="jobs-grid"></div>
 
-        <div>
-          <h2>Featured Positions</h2>
-          <p>Explore the latest hospitality opportunities.</p>
-        </div>
+    <div id="noResults" class="no-results">
+        No positions found matching your search.
+    </div>
 
-        <a href="#jobs" class="view-all">
-          View All Jobs →
-        </a>
-
-      </div>
+</section>
 
 
-      <div class="jobs-grid">
+<!-- =========================
+     SIGN UP
+========================= -->
 
-        <article class="job-card">
-          <div>
-            <div class="job-type">Kitchen</div>
-            <h3>Executive Chef</h3>
-            <div class="job-location">Sharm El Sheikh</div>
-          </div>
+<section class="signup-section" id="signup">
 
-          <a href="#signup" class="apply-link">
-            Apply Now →
-          </a>
-        </article>
+    <div class="section-label">
+        Stay Connected
+    </div>
 
-
-        <article class="job-card">
-          <div>
-            <div class="job-type">Kitchen</div>
-            <h3>Executive Sous Chef</h3>
-            <div class="job-location">Sharm El Sheikh</div>
-          </div>
-
-          <a href="#signup" class="apply-link">
-            Apply Now →
-          </a>
-        </article>
-
-
-        <article class="job-card">
-          <div>
-            <div class="job-type">Pastry</div>
-            <h3>Executive Pastry Chef</h3>
-            <div class="job-location">Sharm El Sheikh</div>
-          </div>
-
-          <a href="#signup" class="apply-link">
-            Apply Now →
-          </a>
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- SIGN UP / NEWSLETTER -->
-    <section class="newsletter" id="signup">
-
-      <h2>Stay Connected With New Opportunities.</h2>
-
-      <p>
-        Join Hospitality Talent Hub and receive the latest hospitality
-        career opportunities directly.
-      </p>
-
-      <a
-        href="https://hospitalitytalenthub.beehiiv.com/"
-        target="_blank"
-        class="newsletter-button"
-      >
-        Sign Up →
-      </a>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <strong>Hospitality Talent Hub</strong>
+    <h2>
+        Never Miss Your<br>
+        Next Opportunity.
+    </h2>
 
     <p>
-      © 2026 Hospitality Talent Hub. All rights reserved.
+        Join Hospitality Talent Hub and receive new
+        hospitality career opportunities directly.
     </p>
 
-  </footer>
+    <a
+        href="https://hospitalitytalenthub.beehiiv.com/"
+        target="_blank"
+        rel="noopener"
+        class="primary-btn"
+    >
+        Sign Up
+    </a>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <img
+        src="logo.png"
+        alt="Hospitality Talent Hub"
+        class="footer-logo"
+    >
+
+    <div class="footer-text">
+        © 2026 Hospitality Talent Hub. All rights reserved.
+    </div>
+
+</footer>
+
+
+<script>
+
+/*
+========================================
+JOB DATA
+========================================
+
+Each job has its own Tally application URL.
+
+Later this data will come from Airtable.
+
+DO NOT change the structure.
+
+========================================
+*/
+
+const jobs = [
+
+    {
+        id: "HT-001",
+        title: "Executive Chef",
+        location: "Sharm El Sheikh",
+        department: "Culinary",
+        type: "Full Time",
+
+        // Replace with the real Tally URL
+        applyUrl: "YOUR-TALLY-LINK"
+    },
+
+    {
+        id: "HT-002",
+        title: "Executive Sous Chef",
+        location: "Sharm El Sheikh",
+        department: "Culinary",
+        type: "Full Time",
+
+        // Replace with the real Tally URL
+        applyUrl: "YOUR-TALLY-LINK"
+    },
+
+    {
+        id: "HT-003",
+        title: "HR Manager",
+        location: "Egypt",
+        department: "Human Resources",
+        type: "Full Time",
+
+        // Replace with the real Tally URL
+        applyUrl: "YOUR-TALLY-LINK"
+    }
+
+];
+
+
+/*
+========================================
+RENDER JOBS
+========================================
+*/
+
+const jobsGrid = document.getElementById("jobsGrid");
+const noResults = document.getElementById("noResults");
+
+const searchInput = document.getElementById("searchInput");
+const locationFilter = document.getElementById("locationFilter");
+const departmentFilter = document.getElementById("departmentFilter");
+
+
+function renderJobs(jobList) {
+
+    jobsGrid.innerHTML = "";
+
+    if (jobList.length === 0) {
+
+        noResults.style.display = "block";
+        return;
+
+    }
+
+    noResults.style.display = "none";
+
+
+    jobList.forEach(job => {
+
+        const card = document.createElement("article");
+
+        card.className = "job-card";
+
+        card.innerHTML = `
+
+            <div class="job-department">
+                ${job.department}
+            </div>
+
+            <h3 class="job-title">
+                ${job.title}
+            </h3>
+
+            <div class="job-meta">
+
+                <div class="job-location">
+                    ${job.location}
+                </div>
+
+                <div class="job-type">
+                    ${job.type}
+                </div>
+
+            </div>
+
+            <div class="job-actions">
+
+                <a
+                    href="${job.applyUrl}"
+                    target="_blank"
+                    rel="noopener"
+                    class="apply-btn"
+                >
+                    Apply Now →
+                </a>
+
+            </div>
+
+        `;
+
+        jobsGrid.appendChild(card);
+
+    });
+
+}
+
+
+/*
+========================================
+FILTER OPTIONS
+========================================
+*/
+
+function populateFilters() {
+
+    const locations = [
+        ...new Set(
+            jobs.map(job => job.location)
+        )
+    ];
+
+    const departments = [
+        ...new Set(
+            jobs.map(job => job.department)
+        )
+    ];
+
+
+    locations.forEach(location => {
+
+        const option = document.createElement("option");
+
+        option.value = location;
+        option.textContent = location;
+
+        locationFilter.appendChild(option);
+
+    });
+
+
+    departments.forEach(department => {
+
+        const option = document.createElement("option");
+
+        option.value = department;
+        option.textContent = department;
+
+        departmentFilter.appendChild(option);
+
+    });
+
+}
+
+
+/*
+========================================
+FILTER JOBS
+========================================
+*/
+
+function filterJobs() {
+
+    const search =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+    const location =
+        locationFilter.value;
+
+    const department =
+        departmentFilter.value;
+
+
+    const filteredJobs = jobs.filter(job => {
+
+        const matchesSearch =
+            job.title
+                .toLowerCase()
+                .includes(search);
+
+        const matchesLocation =
+            !location ||
+            job.location === location;
+
+        const matchesDepartment =
+            !department ||
+            job.department === department;
+
+
+        return (
+            matchesSearch &&
+            matchesLocation &&
+            matchesDepartment
+        );
+
+    });
+
+
+    renderJobs(filteredJobs);
+
+}
+
+
+/*
+========================================
+EVENTS
+========================================
+*/
+
+searchInput.addEventListener(
+    "input",
+    filterJobs
+);
+
+locationFilter.addEventListener(
+    "change",
+    filterJobs
+);
+
+departmentFilter.addEventListener(
+    "change",
+    filterJobs
+);
+
+
+/*
+========================================
+START
+========================================
+*/
+
+populateFilters();
+
+renderJobs(jobs);
+
+</script>
 
 </body>
 </html>
